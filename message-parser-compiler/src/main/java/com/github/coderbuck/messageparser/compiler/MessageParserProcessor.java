@@ -120,7 +120,7 @@ public class MessageParserProcessor extends AbstractProcessor {
                         .addModifiers(Modifier.PUBLIC)
                         .returns(void.class)
                         .addStatement(clazzSimpleName + "Parser" + ".register(this)")
-                        .addStatement("$T.autoNotify(this)", EventUtils.class)
+                        //.addStatement("$T.autoNotify(this)", EventUtils.class)  //先不要加这个，太强制了
                         .build()
                 )
                 .addMethod(MethodSpec.methodBuilder("unregister")
@@ -250,7 +250,7 @@ public class MessageParserProcessor extends AbstractProcessor {
                     .addCode("  if (interceptor != null && interceptor.$L(body)) return;\n", item.msgName)
                     .addCode("  for ($T handler : handlers){\n", HANDLER_CLASS_NAME)
                     .addCode("    handler.$L(body);\n", item.msgName)
-                    .addCode("  }")
+                    .addCode("  }\n")
                     .addCode("});\n");
 
             typeSpec.addMethod(method.build());

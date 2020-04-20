@@ -4,9 +4,9 @@ import com.github.coderbuck.messageparser.EmMsg;
 import com.github.coderbuck.messageparser.annotation.Message;
 
 @Message({
-        EmMsg.A,
-        EmMsg.B,
-        EmMsg.C,
+        EmMsg.Ai_A,
+        EmMsg.Ai_B,
+        EmMsg.Ai_C,
 })
 public interface Ai {
 }

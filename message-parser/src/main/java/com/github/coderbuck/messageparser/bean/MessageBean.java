@@ -1,5 +1,7 @@
 package com.github.coderbuck.messageparser.bean;
 
+import com.github.coderbuck.messageparser.GsonUtils;
+
 public class MessageBean {
 
     String head;
@@ -25,5 +27,9 @@ public class MessageBean {
 
     public void setBody(String body) {
         this.body = body;
+    }
+
+    public String toJson() {
+        return GsonUtils.toJson(this);
     }
 }
